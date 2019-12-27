@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name = "rotating_laser">
+	<link name = "base_link">
+		<visual>
+			<geometry>
+				<box size="0.05 0.05 0.2"/>
+			</geometry>
+			<material name="dark_grey">
+    			<color rgba="0.3 0.3 0.3 1"/>
+    		</material>
+			<origin rpy="0 0 0" xyz="0 0 0.1"/>
+		</visual>
+	</link>
+
+	<link name="arm_sensor">
+		<visual>
+			<geometry>
+				<box size="0.05 0.05 0.059"/> 
+			</geometry>
+			<material name="dark_grey">
+    			<color rgba="0.3 0.3 0.3 1"/>
+    		</material>
+			<origin rpy="0 0 0" xyz="0 0 0.0045"/> 
+		</visual>
+	</link>
+
+	<link name="M8_cylinder">
+      <visual>
+      	<origin xyz="0 0 -0.0025" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="0.085" radius="0.0445"/> 
+        </geometry>
+        <material name="dark_grey">
+          <color rgba="0.3 0.3 0.3 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="M8_baseplate">
+    	<visual>
+    		<origin xyz="0 0 0" rpy="0 0 0"/>
+    		<geometry>
+    			<box size="0.108 0.108 0.0127"/>
+    		</geometry>
+    		<material name="dark_grey">
+    			<color rgba="0.3 0.3 0.3 1"/>
+    		</material>
+    	</visual>
+    </link>
+
+	<joint name="base_to_arm" type="revolute">
+		<axis xyz="1 0 0"/>
+		<limit effort="1000.0" lower="-1.58" upper="1.58" velocity="0.5"/>
+		<parent link="base_link"/>
+		<child link="arm_sensor"/>
+		<origin xyz="0.05 0 0.18"/>
+	</joint>
+
+	<joint name="M8_baseplate_base" type="fixed">
+		<origin xyz="0 0 0.04035" rpy="0 0 0"/>
+		<parent link="arm_sensor"/>
+		<child link="M8_baseplate"/>
+	</joint>	
+
+	<joint name="M8_cylinder_baseplate" type="fixed">
+		<origin xyz="0 0 0.05135" rpy="0 0 0"/>
+		<parent link="M8_baseplate"/>
+		<child link="M8_cylinder"/>
+	</joint>
+
+</robot>

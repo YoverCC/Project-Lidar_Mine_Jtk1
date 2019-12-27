@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/QuanergySystems/catkin_ws/devel
+
+Name: quanergy_client_ros
+Description: Description of quanergy_client_ros
+Version: 2.4.0
+Cflags: 
+Libs: -L/home/ubuntu/QuanergySystems/catkin_ws/devel/lib 
+Requires: roscpp sensor_msgs pcl_ros
