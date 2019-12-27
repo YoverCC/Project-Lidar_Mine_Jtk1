@@ -7,7 +7,7 @@ from sensor_msgs.msg import PointCloud2
 rospy.init_node("test_client")
 rospy.wait_for_service("assemble_scans2")
 assemble_scans = rospy.ServiceProxy("assemble_scans2", AssembleScans2)
-pub = rospy.Publisher("/pointcloud", PointCloud2, queue_size = 1)
+pub = rospy.Publisher("/pointcloud", PointCloud2, queue_size = 10)
 r = rospy.Rate(1)
 
 while not rospy.is_shutdown():

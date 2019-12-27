@@ -250,8 +250,8 @@ def listener():
 	global processing, new_msg, msg_pc2, resolution_param
 	rospy.init_node('resampler_tk1')
 	rospy.Subscriber("/M8_cylinder/points", PointCloud2, callback)
-	pub = rospy.Publisher("/pointcloud_tk1_resample", PointCloud2, queue_size = 500)
-	# Este valor tiene que estar configurado en base a la velocidad configurada en el servo
+	pub = rospy.Publisher("/pointcloud_tk1_resample", PointCloud2, queue_size = 10)
+	# Este valor tiene que estar configurado en base a la velocidad de envio de datos configurada en el servo
 	r = rospy.Rate(5)
 	while not rospy.is_shutdown():
 		if new_msg:
