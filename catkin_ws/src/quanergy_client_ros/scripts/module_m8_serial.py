@@ -3,11 +3,13 @@
 import rospy
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Header
+from std_msgs.msg import String
 import serial
 
 def talker():
 
 	pub = rospy.Publisher('joint_states',JointState,queue_size = 1)
+	pub2 = rospy.Publisher('servo_angle',String, queue_size=10)
 	#rospy.init_node('join_state_publisher')
 	rospy.init_node('talker')
 	msg_angle = JointState()
@@ -35,6 +37,7 @@ def talker():
 		msg_angle.position = [angle_rad]
 		msg_angle.header.stamp = rospy.Time.now()
 		pub.publish(msg_angle)
+		pub2.publish(data_temp)
 		#rospy.loginfo(data_temp)
 		data = ser.readline() #grado 120
 		if not data:

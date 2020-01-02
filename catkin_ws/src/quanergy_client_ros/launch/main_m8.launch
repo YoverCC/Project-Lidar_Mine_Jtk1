@@ -11,18 +11,19 @@
 	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)"/>
 	<param name="use_gui" value="$(arg gui)"/>
 
-    <!-- driver -->
-    <group ns="$(arg ns)">
-    	<node name="client_node" 
-        	pkg="quanergy_client_ros" 
-        	type="client_node" 
-        	args="--host $(arg host) --settings $(find quanergy_client_ros)/settings/client.xml --frame $(arg ns) --return $(arg return) --max-cloud $(arg maxCloudSize)"
-        	required="true"
-		output = "screen"/>
-    </group>
+	<!-- driver -->
+	<group ns="$(arg ns)">
+	<node name="client_node" 
+		pkg="quanergy_client_ros" 
+		type="client_node" 
+		args="--host $(arg host) --settings $(find quanergy_client_ros)/settings/client.xml --frame $(arg ns) --return $(arg return) --max-cloud $(arg maxCloudSize)"
+		required="true"/>
+	</group>
+
+	<include file="$(find quanergy_client_ros)/launch/pointcloud_assembler.launch"/>
 
 	<node name="talker" pkg="quanergy_client_ros" type="module_m8_serial.py"/>
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
-	<!--node name="resampler" pkg="quanergy_client_ros" type="pointcloud_red_jtk1.py" output="screen"/-->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required = "true"/>
+	<node name="resampler" pkg="quanergy_client_ros" type="pointcloud_red_jtk1.py" args="50" output = "screen"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required = "false"/>
 </launch>
