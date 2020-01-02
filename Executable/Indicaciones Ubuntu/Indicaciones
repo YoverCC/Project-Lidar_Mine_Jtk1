@@ -1,0 +1,7 @@
+El archivo debe ir en la carpeta /usr/share/applications
+
+Se debe añadir el permiso de ejecución y edición mediante:
+
+sudo gedit nombredelarchivo.desktop
+
+Editar y estara listo para utilizar.

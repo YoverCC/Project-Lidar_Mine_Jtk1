@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=MineScan
+Comment=Programa de escaneo Laser Lidar Playtec Caverna
+Exec=/home/ubuntu/QuanergySystems/Executable/bin/main.sh
+Icon=/home/ubuntu/QuanergySystems/Executable/Images/mine.png
+Terminal=false
+Type=Application
