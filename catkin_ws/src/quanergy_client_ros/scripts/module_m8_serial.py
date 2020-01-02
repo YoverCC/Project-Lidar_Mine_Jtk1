@@ -21,13 +21,13 @@ def talker():
 	time_to_sleep.sleep()
 	ser.flushInput()
 	ser.setDTR(True)
-
+	time_to_sleep.sleep()
 	ser.write('T')
-
+	time_to_sleep.sleep()
 	msg_angle.velocity = []
 	msg_angle.effort = []
-	data_temp = "grado 180"
-
+	data_temp = "grado 90"
+	
 	while not rospy.is_shutdown():
 		
 		angle = int(data_temp[6:9])

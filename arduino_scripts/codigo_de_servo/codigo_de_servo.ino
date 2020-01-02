@@ -2,7 +2,7 @@
 int grados;
 float angle_calib;
 Servo __myservo9;
-char condition = 'T';
+char condition = 'F';
 // Paso angular define cada cuantos grados avanzara el servo
 int paso_angular = 5;
 
@@ -20,15 +20,18 @@ void setup()
 void loop()
 {
   if (condition != 'T'){
+    delay(1000);
     if (Serial.available() > 0) {
       // read the incoming byte:
       char condition_read = Serial.read();
-      Serial.println(condition_read);
+      //Serial.println(condition_read);
       condition = condition_read;
-      if(condition == 'T'){
+      /**if(condition == 'T'){
         Serial.println("Si cumple la condicion");
-      }
+      }**/
     }
+    Serial.print("grado ");
+    Serial.println(90);
   }
 
   if (condition == 'T'){
