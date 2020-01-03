@@ -18,6 +18,10 @@ def callback(data):
 	if int(value) == 180:
 		time_init = rospy.get_rostime()
 		count_init = count_init + 1
+
+	if int(value) == 5:
+		captura_3d = False
+		count_end = 0
 		
 	if int(value) == 0:
 		if count_init > 0:
@@ -33,14 +37,13 @@ def assembler_client():
 	rospy.wait_for_service("assemble_scans2")
 	assemble_scans = rospy.ServiceProxy("assemble_scans2", AssembleScans2)
 	pub = rospy.Publisher("/assembled_cloud", PointCloud2, queue_size = 10)
-	r = rospy.Rate(1)
+	r = rospy.Rate(10) # El periodo debe ser menor al periodo del arduino en el envio del angulo al procesador central
 	rospy.Subscriber("servo_angle", String, callback)
 
 	while not rospy.is_shutdown():
 		if captura_3d:
 			try:
 				resp = assemble_scans(time_init,time_end) # time_init, time_end
-				#print "Got cloud with %u points" % len(resp.cloud.data)
 				print "Got cloud"
 				pub.publish(resp.cloud)
 
