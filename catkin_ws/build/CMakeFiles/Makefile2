@@ -391,6 +391,7 @@ clean: gtest/gtest/CMakeFiles/gtest_main.dir/clean
 
 # Convenience name for "all" pass in the directory.
 quanergy_client_ros/all: quanergy_client_ros/CMakeFiles/client_node.dir/all
+quanergy_client_ros/all: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all
 
 .PHONY : quanergy_client_ros/all
 
@@ -457,6 +458,7 @@ quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/geometry_msgs_generate
 quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/clean
 quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/clean
+quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/clean
 quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/actionlib_generate_messages_nodejs.dir/clean
 quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/clean
 quanergy_client_ros/clean: quanergy_client_ros/CMakeFiles/actionlib_generate_messages_cpp.dir/clean
@@ -2468,6 +2470,43 @@ quanergy_client_ros/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/cle
 
 # clean rule for target.
 clean: quanergy_client_ros/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir
+
+# All Build rule for target.
+quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all:
+	$(MAKE) -f quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/depend
+	$(MAKE) -f quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles --progress-num=15 "Built target quanergy_client_ros_gencfg"
+.PHONY : quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all
+
+# Include target in all.
+all: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles 0
+.PHONY : quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule
+
+# Convenience name for target.
+quanergy_client_ros_gencfg: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule
+
+.PHONY : quanergy_client_ros_gencfg
+
+# clean rule for target.
+quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/clean:
+	$(MAKE) -f quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/clean
+.PHONY : quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/clean
+
+# clean rule for target.
+clean: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/clean
 
 .PHONY : clean
 

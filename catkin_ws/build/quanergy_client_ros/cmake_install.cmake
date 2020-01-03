@@ -33,6 +33,22 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/quanergy_client_ros" TYPE FILE FILES "/home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/quanergy_client_ros" TYPE FILE FILES "/home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/__init__.py")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/quanergy_client_ros" TYPE DIRECTORY FILES "/home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/QuanergySystems/catkin_ws/build/quanergy_client_ros/catkin_generated/installspace/quanergy_client_ros.pc")
 endif()
 

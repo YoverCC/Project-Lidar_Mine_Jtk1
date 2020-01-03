@@ -10,9 +10,14 @@ import sensor_msgs.point_cloud2 as pc2
 from std_msgs.msg import Header
 import sys
 
+
 processing = False
 new_msg = False
 msg_pc2 = PointCloud2()
+
+# Agregado el parametro de resolucion por interfaz
+from dynamic_reconfigure.server import Server
+from quanergy_client_ros.cfg import resolutionConfig
 
 '''
 Analisis inicial de la data, este analisis es necesario para algunas partes del codigo.
@@ -246,11 +251,19 @@ def callback(data_re):
 		msg_pc2 = data_pc2
 		new_msg = True
 
+def callback_2(config, level):
+	global resolution_param
+	#rospy.loginfo("""Reconfigure Request: {int_param}""".format(**config))
+	resolution_param = config['int_param']
+	#print resolution_param
+	return config
+
 def listener():
 	global processing, new_msg, msg_pc2, resolution_param
 	rospy.init_node('resampler_tk1')
 	rospy.Subscriber("/M8_cylinder/points", PointCloud2, callback)
 	pub = rospy.Publisher("/pointcloud_tk1_resample", PointCloud2, queue_size = 10)
+	srv = Server(resolutionConfig, callback_2)
 	# Este valor tiene que estar configurado en base a la velocidad de envio de datos configurada en el servo
 	r = rospy.Rate(5)
 	while not rospy.is_shutdown():
@@ -262,11 +275,4 @@ def listener():
 			processing = False
 
 if __name__ == '__main__':
-	# Get the arguments and use the rospy function to parse those arguments to the main program
-	args = rospy.myargv(argv=sys.argv)
-	if len(args)!=2:
-		print "ERROR: nor resolution provided"
-		sys.exit(1)
-
-	resolution_param = int(args[1]) # The parameter that we want, the first element is the path of the actual file
 	listener()

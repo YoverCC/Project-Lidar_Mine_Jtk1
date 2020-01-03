@@ -348,6 +348,7 @@ client_node_EXTERNAL_OBJECTS =
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libpcl_common.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libpcl_octree.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/libOpenNI.so
+/home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/libOpenNI2.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libz.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libjpeg.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libpng.so
@@ -382,6 +383,7 @@ client_node_EXTERNAL_OBJECTS =
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libboost_regex.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libpthread.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/libOpenNI.so
+/home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/libOpenNI2.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libz.so
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libvtkIOMPIImage-6.2.so.6.2.0
 /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/quanergy_client_ros/client_node: /usr/lib/arm-linux-gnueabihf/libjpeg.so

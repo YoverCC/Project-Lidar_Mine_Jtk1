@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(quanergy_client_ros_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/ubuntu/QuanergySystems/catkin_ws/devel/include " STREQUAL " ")
   set(quanergy_client_ros_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/ubuntu/QuanergySystems/catkin_ws/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -131,7 +131,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ubuntu/QuanergySystems/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/ubuntu/QuanergySystems/catkin_ws/devel/lib;/home/ubuntu/QuanergySystems/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -154,7 +154,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(quanergy_client_ros_EXPORTED_TARGETS "")
+set(quanergy_client_ros_EXPORTED_TARGETS "quanergy_client_ros_gencfg")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${quanergy_client_ros_EXPORTED_TARGETS})
   if(NOT TARGET ${t})

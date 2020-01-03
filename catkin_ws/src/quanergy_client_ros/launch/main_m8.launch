@@ -21,9 +21,10 @@
 	</group>
 
 	<include file="$(find quanergy_client_ros)/launch/pointcloud_assembler.launch"/>
-
+	
 	<node name="talker" pkg="quanergy_client_ros" type="module_m8_serial.py"/>
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
-	<node name="resampler" pkg="quanergy_client_ros" type="pointcloud_red_jtk1.py" args="50" output = "screen"/>
+	<node name="resampler" pkg="quanergy_client_ros" type="pointcloud_optimization_interfaz.py" output = "screen"/>
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required = "false"/>
+	<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui"/>
 </launch>

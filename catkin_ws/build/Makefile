@@ -1089,6 +1089,19 @@ dynamic_reconfigure_generate_messages_eus/fast:
 .PHONY : dynamic_reconfigure_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named quanergy_client_ros_gencfg
+
+# Build rule for target.
+quanergy_client_ros_gencfg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quanergy_client_ros_gencfg
+.PHONY : quanergy_client_ros_gencfg
+
+# fast build rule for target.
+quanergy_client_ros_gencfg/fast:
+	$(MAKE) -f quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build
+.PHONY : quanergy_client_ros_gencfg/fast
+
+#=============================================================================
 # Target rules for targets named actionlib_generate_messages_nodejs
 
 # Build rule for target.
@@ -1393,6 +1406,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
 	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... quanergy_client_ros_gencfg"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... actionlib_generate_messages_cpp"

@@ -10,6 +10,11 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_ros
 )
 
+generate_dynamic_reconfigure_options(
+	cfg/resolution.cfg
+)
+
+
 ## System dependencies are found with CMake's conventions
 find_package(QuanergyClient REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common io)

@@ -1,0 +1,7 @@
+\subsubsection usage Usage
+\verbatim
+<node name="quanergy_client_ros" pkg="quanergy_client_ros" type="quanergy_client_ros">
+  <param name="int_param" type="int" value="100" />
+</node>
+\endverbatim
+

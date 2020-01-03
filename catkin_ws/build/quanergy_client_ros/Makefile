@@ -1096,6 +1096,21 @@ dynamic_reconfigure_generate_messages_eus/fast:
 .PHONY : dynamic_reconfigure_generate_messages_eus/fast
 
 # Convenience name for target.
+quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule:
+	cd /home/ubuntu/QuanergySystems/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule
+.PHONY : quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule
+
+# Convenience name for target.
+quanergy_client_ros_gencfg: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule
+
+.PHONY : quanergy_client_ros_gencfg
+
+# fast build rule for target.
+quanergy_client_ros_gencfg/fast:
+	cd /home/ubuntu/QuanergySystems/catkin_ws/build && $(MAKE) -f quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build
+.PHONY : quanergy_client_ros_gencfg/fast
+
+# Convenience name for target.
 quanergy_client_ros/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule:
 	cd /home/ubuntu/QuanergySystems/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 quanergy_client_ros/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
 .PHONY : quanergy_client_ros/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
@@ -1478,6 +1493,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
 	@echo "... dynamic_reconfigure_generate_messages_eus"
+	@echo "... quanergy_client_ros_gencfg"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... actionlib_generate_messages_cpp"
