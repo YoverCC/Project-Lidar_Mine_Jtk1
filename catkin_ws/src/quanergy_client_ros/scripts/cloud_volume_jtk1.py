@@ -3,6 +3,7 @@
 import rospy
 import numpy as np
 import pandas as pd
+import scipy.spatial as ss
 
 from numpy import savetxt
 from laser_assembler.srv import *
@@ -15,23 +16,6 @@ import sys
 
 # Variable de condicion de primera generacion
 primer = 1
-
-count_data = 0
-
-from datetime import date
-import os
-
-today = date.today()
-string_today = str(today)
-
-path = "Desktop"
-path_to_folder = path+"/Data/"+string_today
-
-#Creating the dir
-if not os.path.exists(path_to_folder):
-	os.makedirs(path_to_folder)
-
-
 
 DUMMY_FIELD_PREFIX = '__'
 
@@ -125,46 +109,32 @@ def pointcloud2_to_array(cloud_msg, remove_padding=True):
 
     return np.reshape(cloud_arr, (cloud_msg.height, cloud_msg.width))
 
-def save_cloud3d(cloud):
-	global path_to_folder, count_data
-	cloud_array = pointcloud2_to_array(cloud)
-	data_x = cloud_array['x']
-	data_y = cloud_array['y']
-	data_z = cloud_array['z']
-	data_i = cloud_array['intensity']
-	
-	cloud_points = np.append(data_x,data_y,axis = 0)
-	cloud_points = np.append(cloud_points,data_z,axis = 0)
-	cloud_points = np.append(cloud_points,data_i,axis = 0)
-	
-	print cloud_points.shape
-
-	cloud_pd = pd.DataFrame(cloud_points.T)
-	cloud_pd.columns = ["x", "y", "z", "intensity"]
-
-	path_data = path_to_folder+"/data_"+str(count_data)+".csv"
-	cloud_pd.to_csv(path_data, index = True, header = True)
-
 def callback(cloud):
-	global path_to_folder, count_data, primer
+	global primer
+	## VOLUME CALCULATION
 
 	# En la primera generacion total 3d no hace nada
 	if primer:
 		primer = 0
 	else:
-		save_cloud3d(cloud)
-		rospy.loginfo("Nube de puntos guardado en formato csv")
-		count_data = count_data + 1
+		cloud_array = pointcloud2_to_array(cloud)
+		data_x = cloud_array['x']
+		data_y = cloud_array['y']
+		data_z = cloud_array['z']
+		points = np.column_stack((data_x.T, data_y.T, data_z.T))
+		hull = ss.ConvexHull(points)
+		volumen = hull.volume
+		rospy.loginfo("El volumen interior de la nube de puntos es: %f", volumen)
 
 
-def save_data():
-	global  count_data, path_to_folder, primer
-	rospy.init_node("save_data")
+def volume_calculation():
+	global primer
+	rospy.init_node("volume_calculation")
 	rospy.Subscriber("/statistical_outlier_removal/output", PointCloud2, callback)
 	rospy.spin()
 
 if __name__ == '__main__':
 	try:
-		save_data()
+		volume_calculation()
 	except rospy.ROSInterruptException:
 		pass

@@ -9,3 +9,5 @@ xterm -e "rosrun quanergy_client_ros cloud_assembler_jtk1.py" &
 
 xterm -e "rosrun quanergy_client_ros cloud_save_jtk1.py" &
 
+xterm -e "rosrun quanergy_client_ros cloud_volume_jtk1.py" &
+
