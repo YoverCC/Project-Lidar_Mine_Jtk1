@@ -243,8 +243,8 @@ def callback(data_re):
 		data_pc2, dim_nan = array_to_pointcloud2_new(msg_resize, header=data_re.header)
 
 		# Mostrando la informacion de la dimension actual de los puntos por laser
-            	porcentaje = dim_resize*100.0/dim_array
-            	rospy.loginfo([dim_array,dim_resize,dim_nan,porcentaje])
+            	#rospy.loginfo([dim_array,dim_resize,dim_nan])
+		rospy.loginfo("Num points raw cloud: %d, Num points resample: %d, Num points filter NaN: %d",dim_array,dim_resize,dim_nan)
 
 		# Retorno del nuevo PointCloud
 		data_pc2.header.stamp = rospy.Time.now()
@@ -263,6 +263,7 @@ def listener():
 	rospy.init_node('resampler_tk1')
 	rospy.Subscriber("/M8_cylinder/points", PointCloud2, callback)
 	pub = rospy.Publisher("/pointcloud_tk1_resample", PointCloud2, queue_size = 10)
+	# Lectura del valor de resolucion de la interfaz
 	srv = Server(resolutionConfig, callback_2)
 	# Este valor tiene que estar configurado en base a la velocidad de envio de datos configurada en el servo
 	r = rospy.Rate(5)

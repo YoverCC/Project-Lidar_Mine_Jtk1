@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <node name="statistical_outlier_removal"
+        pkg="nodelet" type="nodelet"
+        args="standalone pcl/StatisticalOutlierRemoval">
+    <remap from="~input" to="/assembled_cloud" />
+    <rosparam>
+      mean_k: 10
+      stddev: 1.0
+    </rosparam>
+  </node>
+
+  <test test-name="test_statistical_outlier_removal"
+        name="test_statistical_outlier_removal"
+        pkg="rostest" type="hztest">
+    <rosparam>
+      topic: /statistical_outlier_removal/output
+      hz: 20
+      hzerror: 15
+      test_duration: 5.0
+    </rosparam>
+  </test>
+
+</launch>
