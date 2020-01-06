@@ -55,6 +55,7 @@ def assembler_client():
 				resp = assemble_scans(time_init,time_end) # time_init, time_end
 				print "Got cloud"
 				pub.publish(resp.cloud)
+				captura_3d = False
 
 			except rospy.ServiceException, e:
 				print "Service call failed %s"%e
