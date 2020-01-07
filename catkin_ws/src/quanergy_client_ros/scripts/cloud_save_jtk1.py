@@ -18,14 +18,14 @@ primer = 1
 
 count_data = 0
 
-from datetime import date
+from datetime import datetime
 import os
 
-today = date.today()
+today = datetime.today()
 string_today = str(today)
-
+string_today_h = string_today[:-10]
 path = "Desktop"
-path_to_folder = path+"/Data/"+string_today
+path_to_folder = path+"/Data/"+string_today_h
 
 #Creating the dir
 if not os.path.exists(path_to_folder):
