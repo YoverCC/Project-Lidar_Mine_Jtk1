@@ -5,6 +5,8 @@
         pkg="nodelet" type="nodelet"
         args="standalone pcl/StatisticalOutlierRemoval">
     <remap from="~input" to="/assembled_cloud" />
+
+    <!--Parametros por defecto del filtro estadístico-->
     <rosparam>
       mean_k: 10
       stddev: 1.0
@@ -14,6 +16,7 @@
   <test test-name="test_statistical_outlier_removal"
         name="test_statistical_outlier_removal"
         pkg="rostest" type="hztest">
+    
     <rosparam>
       topic: /statistical_outlier_removal/output
       hz: 20

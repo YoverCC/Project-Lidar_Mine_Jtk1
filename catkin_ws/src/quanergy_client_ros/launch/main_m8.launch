@@ -1,9 +1,12 @@
 <launch>
+
+	<!--Argumentos del nodo cliente del sensor M8, por defecto estos valores-->
 	<arg name="host" />
 	<arg name="ns" default="M8_cylinder" />
 	<arg name="return" default="0" />
  	<arg name="maxCloudSize" default="-1" />
 
+	<!--Modelo del robot y configuración de rviz almacenada-->
  	<arg name="model" default="$(find quanergy_client_ros)/urdf/modelm8.urdf"/>
 	<arg name="gui" default="true" />
 	<arg name="rvizconfig" default="$(find quanergy_client_ros)/rviz/plotCloud.rviz"/>
@@ -20,15 +23,19 @@
 		required="true"/>
 	</group>
 
-	<!--launch files-->
+	<!--Archivos launch incluidos-->
 	<include file="$(find quanergy_client_ros)/launch/pointcloud_assembler.launch"/>
 	
 	<include file="$(find quanergy_client_ros)/launch/filter_cloud.launch"/>
 
-	<!--node-->
+	<!--Nodos-->
+	<!--Serial con el arduino-->
 	<node name="talker" pkg="quanergy_client_ros" type="module_m8_serial.py"/>
+	<!--Transformadas del sistema mecatronico (robot)-->	
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+	<!--Muestreo-->	
 	<node name="resampler" pkg="quanergy_client_ros" type="pointcloud_optimization_interfaz.py" output = "screen"/>
+	<!--Nodos de visualizacion-->	
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required = "false"/>
 	<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui"/>
 </launch>

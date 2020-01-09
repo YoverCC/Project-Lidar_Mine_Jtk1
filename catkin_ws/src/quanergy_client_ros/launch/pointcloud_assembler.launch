@@ -1,6 +1,8 @@
 <launch>
 	<node type="point_cloud2_assembler" pkg="laser_assembler" name="my_assembler">
     	<remap from="cloud" to="/pointcloud_tk1_resample"/>
+
+	<!--Se configura el parametro de la máxima cantidad de nube de puntos almacenados en el stack-->
     	<param name="max_clouds" type="int" value="42"/>
     	<param name="fixed_frame" type="string" value="base_link"/>
 	</node>
