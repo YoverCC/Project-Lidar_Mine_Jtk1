@@ -13,6 +13,14 @@ import sensor_msgs.point_cloud2 as pc2
 from std_msgs.msg import Header
 import sys
 
+# Agregando los parametros de la interfaz
+from dynamic_reconfigure.server import Server
+from quanergy_client_ros.cfg import coordenadas_refConfig
+
+x_param = 0
+y_param = 0
+z_param = 0
+
 # Variable de condicion de primera generacion
 primer = 1
 
@@ -126,11 +134,11 @@ def pointcloud2_to_array(cloud_msg, remove_padding=True):
     return np.reshape(cloud_arr, (cloud_msg.height, cloud_msg.width))
 
 def save_cloud3d(cloud):
-	global path_to_folder, count_data
+	global path_to_folder, count_data, x_param, y_param, z_param
 	cloud_array = pointcloud2_to_array(cloud)
-	data_x = cloud_array['x']
-	data_y = cloud_array['y']
-	data_z = cloud_array['z']
+	data_x = cloud_array['x'] + x_param
+	data_y = cloud_array['y'] + y_param
+	data_z = cloud_array['z'] + z_param
 	data_i = cloud_array['intensity']
 	
 	cloud_points = np.append(data_x,data_y,axis = 0)
@@ -156,11 +164,19 @@ def callback(cloud):
 		rospy.loginfo("Nube de puntos guardado en formato csv")
 		count_data = count_data + 1
 
+def callback_2(config, level):
+	global x_param, y_param, z_param
+	x_param = float(config['x_gps'])
+	y_param = float(config['y_gps'])
+	z_param = float(config['z_gps'])
+	return config
+
 
 def save_data():
-	global  count_data, path_to_folder, primer
+	global  count_data, path_to_folder, primer, x_param, y_param, z_param
 	rospy.init_node("save_data")
 	rospy.Subscriber("/statistical_outlier_removal/output", PointCloud2, callback)
+	srv = Server(coordenadas_refConfig, callback_2)
 	rospy.spin()
 
 if __name__ == '__main__':

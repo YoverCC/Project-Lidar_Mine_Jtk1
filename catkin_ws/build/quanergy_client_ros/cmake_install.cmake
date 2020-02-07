@@ -37,6 +37,10 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/quanergy_client_ros" TYPE FILE FILES "/home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/quanergy_client_ros" TYPE FILE FILES "/home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/__init__.py")
 endif()
 

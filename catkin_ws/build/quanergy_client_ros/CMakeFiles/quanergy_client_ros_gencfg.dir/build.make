@@ -55,13 +55,15 @@ include quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/progress.m
 
 quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h
 quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/resolutionConfig.py
+quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h
+quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/coordenadas_refConfig.py
 
 
 /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h: /home/ubuntu/QuanergySystems/catkin_ws/src/quanergy_client_ros/cfg/resolution.cfg
 /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h: /opt/ros/kinetic/share/dynamic_reconfigure/templates/ConfigType.py.template
 /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h: /opt/ros/kinetic/share/dynamic_reconfigure/templates/ConfigType.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating dynamic reconfigure files from cfg/resolution.cfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/resolutionConfig.py"
-	cd /home/ubuntu/QuanergySystems/catkin_ws/build/quanergy_client_ros && ../catkin_generated/env_cached.sh /home/ubuntu/QuanergySystems/catkin_ws/src/quanergy_client_ros/cfg/resolution.cfg /opt/ros/kinetic/share/dynamic_reconfigure/cmake/.. /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros
+	cd /home/ubuntu/QuanergySystems/catkin_ws/build/quanergy_client_ros && ../catkin_generated/env_cached.sh /home/ubuntu/QuanergySystems/catkin_ws/build/quanergy_client_ros/setup_custom_pythonpath.sh /home/ubuntu/QuanergySystems/catkin_ws/src/quanergy_client_ros/cfg/resolution.cfg /opt/ros/kinetic/share/dynamic_reconfigure/cmake/.. /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros
 
 /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/resolutionConfig.dox: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h
 	@$(CMAKE_COMMAND) -E touch_nocreate /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/resolutionConfig.dox
@@ -75,12 +77,35 @@ quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg: /home/ubuntu/Quanergy
 /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/resolutionConfig.wikidoc: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h
 	@$(CMAKE_COMMAND) -E touch_nocreate /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/resolutionConfig.wikidoc
 
+/home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h: /home/ubuntu/QuanergySystems/catkin_ws/src/quanergy_client_ros/cfg/coordenadas_ref.cfg
+/home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h: /opt/ros/kinetic/share/dynamic_reconfigure/templates/ConfigType.py.template
+/home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h: /opt/ros/kinetic/share/dynamic_reconfigure/templates/ConfigType.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating dynamic reconfigure files from cfg/coordenadas_ref.cfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/coordenadas_refConfig.py"
+	cd /home/ubuntu/QuanergySystems/catkin_ws/build/quanergy_client_ros && ../catkin_generated/env_cached.sh /home/ubuntu/QuanergySystems/catkin_ws/build/quanergy_client_ros/setup_custom_pythonpath.sh /home/ubuntu/QuanergySystems/catkin_ws/src/quanergy_client_ros/cfg/coordenadas_ref.cfg /opt/ros/kinetic/share/dynamic_reconfigure/cmake/.. /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros
+
+/home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig.dox: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig.dox
+
+/home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig-usage.dox: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig-usage.dox
+
+/home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/coordenadas_refConfig.py: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/coordenadas_refConfig.py
+
+/home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig.wikidoc: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h
+	@$(CMAKE_COMMAND) -E touch_nocreate /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig.wikidoc
+
 quanergy_client_ros_gencfg: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg
 quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/resolutionConfig.h
 quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/resolutionConfig.dox
 quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/resolutionConfig-usage.dox
 quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/resolutionConfig.py
 quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/resolutionConfig.wikidoc
+quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/include/quanergy_client_ros/coordenadas_refConfig.h
+quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig.dox
+quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig-usage.dox
+quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/lib/python2.7/dist-packages/quanergy_client_ros/cfg/coordenadas_refConfig.py
+quanergy_client_ros_gencfg: /home/ubuntu/QuanergySystems/catkin_ws/devel/share/quanergy_client_ros/docs/coordenadas_refConfig.wikidoc
 quanergy_client_ros_gencfg: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make
 
 .PHONY : quanergy_client_ros_gencfg

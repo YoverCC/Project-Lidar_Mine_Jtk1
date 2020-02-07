@@ -2480,7 +2480,7 @@ clean: quanergy_client_ros/CMakeFiles/dynamic_reconfigure_generate_messages_eus.
 quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all:
 	$(MAKE) -f quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/depend
 	$(MAKE) -f quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build.make quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles --progress-num=15 "Built target quanergy_client_ros_gencfg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles --progress-num=15,16 "Built target quanergy_client_ros_gencfg"
 .PHONY : quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all
 
 # Include target in all.
@@ -2490,7 +2490,7 @@ all: quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all
 
 # Build rule for subdir invocation for target.
 quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ubuntu/QuanergySystems/catkin_ws/build/CMakeFiles 0
 .PHONY : quanergy_client_ros/CMakeFiles/quanergy_client_ros_gencfg.dir/rule

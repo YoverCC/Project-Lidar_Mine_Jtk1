@@ -254,7 +254,8 @@ def callback(data_re):
 def callback_2(config, level):
 	global resolution_param
 	#rospy.loginfo("""Reconfigure Request: {int_param}""".format(**config))
-	resolution_param = config['int_param']
+	porcentaje = config['Porcentaje']
+	resolution_param = int(5000/porcentaje)
 	#print resolution_param
 	return config
 

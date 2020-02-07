@@ -2,5 +2,5 @@
 
 Reads and maintains the following parameters on the ROS server
 
-- \b "~int_param" : \b [int] Parametro de resolucion min: 50, default: 100, max: 200
+- \b "~Porcentaje" : \b [int] Parametro de resolucion min: 40, default: 75, max: 100
 

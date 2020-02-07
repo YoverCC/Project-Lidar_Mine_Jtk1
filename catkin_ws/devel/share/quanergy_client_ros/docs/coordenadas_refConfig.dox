@@ -1,0 +1,8 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~x_gps" : \b [str] Coord X min: , default: 0, max: 
+- \b "~y_gps" : \b [str] Coord Y min: , default: 0, max: 
+- \b "~z_gps" : \b [str] Coord Z min: , default: 0, max: 
+

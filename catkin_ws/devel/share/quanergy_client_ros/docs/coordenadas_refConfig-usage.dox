@@ -1,7 +1,9 @@
 \subsubsection usage Usage
 \verbatim
 <node name="quanergy_client_ros" pkg="quanergy_client_ros" type="quanergy_client_ros">
-  <param name="Porcentaje" type="int" value="75" />
+  <param name="x_gps" type="str" value="0" />
+  <param name="y_gps" type="str" value="0" />
+  <param name="z_gps" type="str" value="0" />
 </node>
 \endverbatim
 
