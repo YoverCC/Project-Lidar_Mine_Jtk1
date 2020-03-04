@@ -17,6 +17,7 @@ import sys
 # Variable de condicion de primera generacion
 primer = 1
 
+# Funciones de conversion de np.array a PointCloud type
 DUMMY_FIELD_PREFIX = '__'
 
 # mappings between PointField types and numpy types

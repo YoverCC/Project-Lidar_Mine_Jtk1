@@ -10,7 +10,7 @@ import sensor_msgs.point_cloud2 as pc2
 from std_msgs.msg import Header
 import sys
 
-
+# Variables globales
 processing = False
 new_msg = False
 msg_pc2 = PointCloud2()
@@ -18,6 +18,7 @@ msg_pc2 = PointCloud2()
 # Agregado el parametro de resolucion por interfaz
 from dynamic_reconfigure.server import Server
 from quanergy_client_ros.cfg import resolutionConfig
+
 
 '''
 Analisis inicial de la data, este analisis es necesario para algunas partes del codigo.
@@ -39,7 +40,7 @@ Nota: La cantidad de puntos por laser contiene valores nan.
 # Constante de remuestreo
 resolution_param = 1;
 
-# New function
+# FUNCIONES DE CONVERSION DE DATOS POINTCLOUD A NP.ARRAY
 
 # prefix to the names of dummy fields we add to get byte alignment correct. this needs to not
 # clash with any actual field names
@@ -135,40 +136,17 @@ def pointcloud2_to_array(cloud_msg, remove_padding=True):
 
     return np.reshape(cloud_arr, (cloud_msg.height, cloud_msg.width))
 
-def array_to_pointcloud2(cloud_arr, header=None):
-    '''Converts a numpy record array to a sensor_msgs.msg.PointCloud2.
-    '''
-
-    # make it 2d (even if height will be 1)
-    cloud_arr = np.atleast_2d(cloud_arr)
-
-    cloud_msg = PointCloud2()
-
-    if header is not None:
-        cloud_msg.header = header
-
-    cloud_msg.height = cloud_arr.shape[0]
-    cloud_msg.width = cloud_arr.shape[1]
-    cloud_msg.fields = arr_to_fields(cloud_arr)
-    cloud_msg.is_bigendian = False # assumption
-    cloud_msg.point_step = cloud_arr.dtype.itemsize
-    cloud_msg.row_step = cloud_msg.point_step*cloud_arr.shape[1]
-    cloud_msg.is_dense = all([np.isfinite(cloud_arr[fname]).all() for fname in cloud_arr.dtype.names])
-    cloud_msg.data = cloud_arr.tostring()
-
-    return cloud_msg
-
+# NUEVA FUNCION DE NP.ARRAY A PC2 IMPLEMENTADA
 def array_to_pointcloud2_new(cloud_arr, header=None):
     '''Converts a numpy record array to a sensor_msgs.msg.PointCloud2.
     '''
-
-    # make it 2d (even if height will be 1)
     data_x = cloud_arr['x'].reshape(1,cloud_arr.shape[0]*cloud_arr.shape[1])
     data_y = cloud_arr['y'].reshape(1,cloud_arr.shape[0]*cloud_arr.shape[1])
     data_z = cloud_arr['z'].reshape(1,cloud_arr.shape[0]*cloud_arr.shape[1])
     data_i = cloud_arr['intensity'].reshape(1,cloud_arr.shape[0]*cloud_arr.shape[1])
     data_r = cloud_arr['ring'].reshape(1,cloud_arr.shape[0]*cloud_arr.shape[1])
     
+    # Filtrando valores NaN
     x_nan = np.isnan(data_x)
     data_x = data_x[~x_nan]
     data_x = data_x.reshape(1,data_x.shape[0])
@@ -183,6 +161,7 @@ def array_to_pointcloud2_new(cloud_arr, header=None):
     
     dim_nan = data_x.shape[1]
 
+    # Generacion del PointCloud
     npoints = np.append(data_x,data_y,axis = 0)
     npoints = np.append(npoints,data_z,axis = 0)
     npoints = np.append(npoints,data_i,axis = 0)
@@ -195,7 +174,7 @@ def array_to_pointcloud2_new(cloud_arr, header=None):
     #      PointField('intensity', 12, PointField.FLOAT32, 1),
     #      PointField('ring', 16, PointField.UINT16, 1),
     #      ]
-    # Ring can not be used for generate the pc2 because this generates a bus error
+    # La informacion de Ring no puede ser usado para generar un pc2 porque este genera un bus error.
     fields = [PointField('x', 0, PointField.FLOAT32, 1),
           PointField('y', 4, PointField.FLOAT32, 1),
           PointField('z', 8, PointField.FLOAT32, 1),
@@ -208,7 +187,7 @@ def array_to_pointcloud2_new(cloud_arr, header=None):
 
     return cloud_msg , dim_nan
 
-
+# CALLBACK DE REMUESTREO
 def callback(data_re):
 	global processing, new_msg, msg_pc2, resolution_param
 	if not processing:
@@ -251,14 +230,14 @@ def callback(data_re):
 		msg_pc2 = data_pc2
 		new_msg = True
 
+# CALLBACK DE ACTUALIZACION DEL PARAMETRO
 def callback_2(config, level):
 	global resolution_param
-	#rospy.loginfo("""Reconfigure Request: {int_param}""".format(**config))
 	porcentaje = config['Porcentaje']
 	resolution_param = int(5000/porcentaje)
-	#print resolution_param
 	return config
 
+# FUNCION PRINCIPAL
 def listener():
 	global processing, new_msg, msg_pc2, resolution_param
 	rospy.init_node('resampler_tk1')

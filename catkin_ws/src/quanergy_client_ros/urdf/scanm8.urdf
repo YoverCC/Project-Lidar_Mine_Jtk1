@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<robot name="scanner">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <!--Emula al tripode-->
+                <cylinder length="1.5" radius="0.035" />
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 0.75"/>
+        </visual>
+    </link>
+
+    <link name="sub_module">
+        <visual>
+            <geometry>
+                <box size = "0.086 0.08 0.12"/>
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 0.06"/>
+        </visual>
+    </link>
+
+    <link name="eje">
+        <visual>
+            <geometry>
+                <cylinder length="0.005" radius="0.005"/>
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 0.0025"/>
+        </visual>
+    </link>
+
+    <!--Para simplificar se dividio en 3 secciones el elemento C (rotor)-->
+    <link name="c_center">
+        <visual>
+            <geometry>
+                <box size="0.1027 0.125 0.03"/>
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 0.015"/>
+        </visual>
+    </link>
+
+    <link name="c_lower">
+        <visual>
+            <geometry>
+                <box size="0.014 0.125 0.180"/>
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 0.09"/>
+        </visual>
+    </link>
+
+    <link name="c_upper">
+        <visual>
+            <geometry>
+                <box size="0.012 0.125 0.180"/>
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 0.09"/>
+        </visual>
+    </link>
+
+    <!--LIDAR M8-->
+    <link name="M8_base">
+        <visual>
+            <geometry>
+                <box size="0.108 0.125 0.0127"/>
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 0.00635"/>
+        </visual>
+    </link>    
+
+    <link name="M8_cylinder">
+        <visual>
+            <geometry>
+                <cylinder length="0.09" radius="0.0445"/>
+            </geometry>
+            <material name="dark_grey">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+            <origin rpy="0 0 0" xyz="0 0 -0.0077"/>
+        </visual>
+    </link>
+
+    <!--JOINTS-->
+    <joint name="base_to_sub" type="fixed">
+        <origin xyz = "0 0 1.5" rpy = "0 0 0"/>
+        <parent link = "base_link"/>
+        <child link = "sub_module"/>
+    </joint>
+
+    <joint name="sub_to_eje" type="revolute">
+        <axis xyz = "0 0 1"/>
+        <limit effort = "1000.0" lower ="-1.58" upper="1.58" velocity="0.5"/>
+        <origin xyz = "-0.01418 0 0.12" rpy = "0 0 0"/>
+        <parent link="sub_module"/>
+        <child link ="eje"/>
+    </joint>
+
+    <joint name="eje_to_c_center" type="fixed">
+        <origin xyz = "0 0 0.005" rpy = "0 0 0"/>
+        <parent link = "eje"/>
+        <child link = "c_center"/>
+    </joint>
+
+    <joint name="c_center_to_c_lower" type="fixed">
+        <origin xyz = "0.05835 0 0" rpy = "0 0 0"/>
+        <parent link = "c_center"/>
+        <child link = "c_lower"/>
+    </joint>
+
+    <joint name="c_center_to_c_upper" type="fixed">
+        <origin xyz = "-0.05735 0 0" rpy = "0 0 0"/>
+        <parent link = "c_center"/>
+        <child link = "c_upper"/>
+    </joint>
+
+    <joint name="c_lower_to_M8_base" type="fixed">
+        <origin xyz = "-0.007 0 0.126" rpy = "0 -1.5708 0"/>
+        <parent link = "c_lower"/>
+        <child link = "M8_base"/>
+    </joint>
+
+    <joint name="M8_base_to_M8_cylinder" type="fixed">
+        <origin xyz = "0 0 0.0654" rpy = "0 0 0"/>
+        <parent link = "M8_base"/>
+        <child link = "M8_cylinder"/>
+    </joint>
+</robot>

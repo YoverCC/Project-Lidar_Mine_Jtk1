@@ -7,7 +7,7 @@
  	<arg name="maxCloudSize" default="-1" />
 
 	<!--Modelo del robot y configuración de rviz almacenada-->
- 	<arg name="model" default="$(find quanergy_client_ros)/urdf/modelm8.urdf"/>
+ 	<arg name="model" default="$(find quanergy_client_ros)/urdf/scanm8.urdf"/>
 	<arg name="gui" default="true" />
 	<arg name="rvizconfig" default="$(find quanergy_client_ros)/rviz/plotCloud.rviz"/>
 

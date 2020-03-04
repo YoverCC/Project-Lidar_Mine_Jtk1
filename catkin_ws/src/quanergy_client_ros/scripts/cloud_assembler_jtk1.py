@@ -13,6 +13,7 @@ import sensor_msgs.point_cloud2 as pc2
 from std_msgs.msg import Header
 import sys
 
+# Variables para el stack de la funcion laser assembler
 time_init = None
 time_end = None
 captura_3d = False
@@ -33,8 +34,6 @@ def callback(data):
 		captura_3d = True
 		print "Finish stack"
 	prev_value = value
-
-		
 
 
 def assembler_client():

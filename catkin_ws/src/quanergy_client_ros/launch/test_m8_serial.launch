@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<node name = "talker" pkg = "quanergy_client_ros" type = "module_m8_serial.py"/>
+	<test test-name = "test_m8_serial_angle" pkg = "quanergy_client_ros" type = "test_m8_serial_angle.py" />
+</launch>
